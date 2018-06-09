@@ -213,8 +213,8 @@ class SwitchTabsCommand(sublime_plugin.TextCommand):
                 name += "\t#"  # read only
 
             self.add_element(is_current, self.view_list, view)
-            if g_showFullPath and not is_draft:
-                caption = os.path.dirname(view.file_name())
+            if g_showFullPath:
+                caption = os.path.dirname(view.file_name()) if not is_draft else ''
                 self.add_element(is_current, self.name_list, [name, caption])
             else:
                 self.add_element(is_current, self.name_list, [name])
